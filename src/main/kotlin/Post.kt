@@ -13,6 +13,8 @@ data class Post(
     val likes: Likes = Likes(),
     val reposts: Reposts = Reposts(),
     val views: Views = Views(),
+    val postType: PostType = PostType.post,
+    val postSource: PostSource = PostSource()?:"",
     val singerId: Int = 0,
     val canPin: Boolean = false,
     val canDelete: Boolean = true,
@@ -23,6 +25,7 @@ data class Post(
     val donut: Donut = Donut(),
     val postponedId: Int = 0
 ) {
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
