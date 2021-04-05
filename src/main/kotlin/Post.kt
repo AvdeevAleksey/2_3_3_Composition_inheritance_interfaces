@@ -14,11 +14,11 @@ open class Post(
     val reposts: Reposts = Reposts(),
     val views: Views = Views(),
     val postType: PostType = PostType.post,
-    val postSource: PostSource = (PostSource()?:"") as PostSource,
+    val postSource: PostSource = PostSource(),
 //    val attachment: Array,
     val geo: Geo = Geo(),
     val singerId: Int = 0,
-    val copyHistory: CopyHistory = CopyHistory(),
+    val copyHistory: Array<Reposts> = copyHistory(),
     val canPin: Boolean = false,
     val canDelete: Boolean = true,
     val canEdit: Boolean = true,
@@ -50,4 +50,10 @@ fun repost(post: Post): Boolean {
         post.repostId
             return true
     } else return false
+}
+
+fun copyHistory(): Array<Reposts> {
+
+    var reposts: Array<Reposts> = repost()
+    return reposts
 }

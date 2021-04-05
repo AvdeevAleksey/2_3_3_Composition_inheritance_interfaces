@@ -1,8 +1,8 @@
 class Reposts(
     val repostId: Int,
-    private val count: Int = 0,
-    private val userReposted: Boolean = false,
-    repostAuthorId: Int = 0
+    val count: Int,
+    val userReposted: Boolean = false,
+    repostAuthorId: Int
 ): Post(
     id = 0,
     ownerId = 0,
@@ -19,11 +19,10 @@ class Reposts(
     reposts = Reposts(),
     views = Views(),
     postType = PostType.post,
-    postSource = (PostSource()?:"") as PostSource,
-    //    val attachment: Array,
+    postSource = PostSource(),
+    //    attachment: Array,
     geo = Geo(),
     singerId = 0,
-    copyHistory = CopyHistory(),
     canPin = false,
     canDelete = true,
     canEdit = true,
@@ -36,6 +35,6 @@ class Reposts(
     var repostAuthorId:Int = repostAuthorId
         get() = field
         set(value) {
-            field = if (userReposted) {value} else 0
+            field = if (userReposted) value else 0
         }
 }
