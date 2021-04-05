@@ -1,4 +1,4 @@
-data class Post(
+open class Post(
     val id: Int = 0,
     internal val ownerId: Int = 0,
     val formId: Int = 0,
@@ -15,10 +15,10 @@ data class Post(
     val views: Views = Views(),
     val postType: PostType = PostType.post,
     val postSource: PostSource = (PostSource()?:"") as PostSource,
-    val attachment: Array,
-    val geo: ,
+//    val attachment: Array,
+    val geo: Geo = Geo(),
     val singerId: Int = 0,
-    val copyHistory: Array,
+    val copyHistory: CopyHistory = CopyHistory(),
     val canPin: Boolean = false,
     val canDelete: Boolean = true,
     val canEdit: Boolean = true,
@@ -45,3 +45,9 @@ data class Post(
     }
 }
 
+fun repost(post: Post): Boolean {
+    if (post is Reposts) {
+        post.repostId
+            return true
+    } else return false
+}
