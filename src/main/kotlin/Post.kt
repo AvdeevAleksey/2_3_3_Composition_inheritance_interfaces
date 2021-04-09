@@ -1,4 +1,4 @@
-open class Post(
+class Post(
     val id: Int = 0,
     internal val ownerId: Int = 0,
     val formId: Int = 0,
@@ -53,7 +53,5 @@ fun repost(post: Post): Boolean {
 }
 
 fun copyHistory(): Array<Reposts> {
-
-    var reposts: Array<Reposts> = repost()
-    return reposts
+    return reposts += repost()
 }

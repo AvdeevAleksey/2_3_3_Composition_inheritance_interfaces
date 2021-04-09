@@ -32,6 +32,7 @@ class Reposts(
     donut = Donut(),
     postponedId = 0
 ) {
+
     var repostAuthorId:Int = repostAuthorId
         get() = field
         set(value) {
