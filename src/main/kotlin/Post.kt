@@ -11,14 +11,14 @@ class Post(
     val comments: Comments = Comments(),
     val copyright: Copyright = Copyright(),
     val likes: Likes = Likes(),
-    val reposts: Reposts = Reposts(),
+    val reposts: Reposts? = null,
     val views: Views = Views(),
     val postType: PostType = PostType.post,
-    val postSource: PostSource = PostSource(),
-//    val attachment: Array,
+    val postSource: PostSource? = null,
+    val attachment: Array<Attachments>? = null,
     val geo: Geo = Geo(),
     val singerId: Int = 0,
-    val copyHistory: Array<Reposts> = copyHistory(),
+    val copyHistory: Array<Reposts>? = null,
     val canPin: Boolean = false,
     val canDelete: Boolean = true,
     val canEdit: Boolean = true,
@@ -43,15 +43,4 @@ class Post(
     override fun hashCode(): Int {
         return id
     }
-}
-
-fun repost(post: Post): Boolean {
-    if (post is Reposts) {
-        post.repostId
-            return true
-    } else return false
-}
-
-fun copyHistory(): Array<Reposts> {
-    return reposts += repost()
 }
